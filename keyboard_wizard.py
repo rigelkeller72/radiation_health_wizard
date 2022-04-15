@@ -16,7 +16,7 @@ wb_obj = openpyxl.load_workbook(path)
 sheet_obj = wb_obj.active
 max_col = sheet_obj.max_column
 # max_row = sheet_obj.max_row
-max_row = 40
+max_row = 10
 big_lst = []
 
 
@@ -27,12 +27,11 @@ for x in range(1, max_row + 1):
         box = cell_obj.value
         if type(box) == int:
             box = str(box)
-        # print(type(box))
         big_lst.append(box)
         time.sleep(0.1)
 
 # Converting list into list of Tuples
-lst_tuple = [x for x in zip(*[iter(big_lst)]*3)]
+lst_tuple = [x for x in zip(*[iter(big_lst)]*5)]
 
 # Keyboard and mouse setup
 keyboard = KeyboardController()
@@ -70,7 +69,7 @@ e = Key.enter
 time.sleep(3)
 
 
-def myfunction(first_name, last_name, dob_):
+def myfunction(first_name, last_name, age, ssn, dob):
 
     keyboard.press(t)
     keyboard.release(t)
@@ -91,7 +90,23 @@ def myfunction(first_name, last_name, dob_):
     keyboard.press(t)
     keyboard.release(t)
 
-    for char in dob_:
+    for char in age:
+        keyboard.press(char)
+        keyboard.release(char)
+        time.sleep(0.05)
+
+    keyboard.press(t)
+    keyboard.release(t)
+
+    for char in ssn:
+        keyboard.press(char)
+        keyboard.release(char)
+        time.sleep(0.05)
+
+    keyboard.press(t)
+    keyboard.release(t)
+
+    for char in dob:
         keyboard.press(char)
         keyboard.release(char)
         time.sleep(0.05)
@@ -117,4 +132,4 @@ time.sleep(0.5)
 
 # Start going through patient data
 for index, tuples in enumerate(lst_tuple):
-    myfunction(tuples[0], tuples[1], tuples[2])
+    myfunction(tuples[0], tuples[1], tuples[2], tuples[3], tuples[4])
