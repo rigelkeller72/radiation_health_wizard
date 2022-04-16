@@ -38,46 +38,30 @@ keyboard = KeyboardController()
 mouse = MouseController()
 t = Key.tab
 e = Key.enter
-# firstname = 'Rigel'
-# lastname = 'Keller'
-# dob = '1111111'
-#
-# firstname1 = 'adam'
-# lastname1 = 'smith'
-# dob1 = '2222222'
-#
-# firstname2 = 'george'
-# lastname2 = 'washington'
-# dob2 = '3333333'
-#
-# firstname3 = 'michael'
-# lastname3 = 'smithers'
-# dob3 = '44444444'
-#
-# firstname4 = 'denzel'
-# lastname4 = 'washington'
-# dob4 = '555555555'
-#
-# thistuple = (firstname, lastname, dob)
-# thistuple1 = (firstname1, lastname1, dob1)
-# thistuple2 = (firstname2, lastname2, dob2)
-# thistuple3 = (firstname3, lastname3, dob3)
-# thistuple4 = (firstname4, lastname4, dob4)
-#
-# listotuples = [thistuple, thistuple1, thistuple2, thistuple3, thistuple4]
 
+type_speed = 0.2
 time.sleep(3)
 
 
 def myfunction(first_name, last_name, age, ssn, dob):
+    # Set pointer position
+    mouse.position = (180, 330)
+    time.sleep(type_speed)
 
-    keyboard.press(t)
-    keyboard.release(t)
+    # Press and release
+    mouse.press(Button.left)
+    mouse.release(Button.left)
+    time.sleep(type_speed)
+
+    for repeat in range(4):
+        keyboard.press(t)
+        keyboard.release(t)
+        time.sleep(type_speed)
 
     for char in first_name:
         keyboard.press(char)
         keyboard.release(char)
-        time.sleep(0.05)
+        time.sleep(type_speed)
 
     keyboard.press(t)
     keyboard.release(t)
@@ -85,50 +69,107 @@ def myfunction(first_name, last_name, age, ssn, dob):
     for char in last_name:
         keyboard.press(char)
         keyboard.release(char)
-        time.sleep(0.05)
+        time.sleep(type_speed)
 
     keyboard.press(t)
     keyboard.release(t)
+    time.sleep(type_speed)
 
     for char in age:
         keyboard.press(char)
         keyboard.release(char)
-        time.sleep(0.05)
+        time.sleep(type_speed)
 
     keyboard.press(t)
     keyboard.release(t)
+    time.sleep(type_speed)
 
     for char in ssn:
         keyboard.press(char)
         keyboard.release(char)
-        time.sleep(0.05)
+        time.sleep(type_speed)
 
     keyboard.press(t)
     keyboard.release(t)
+    time.sleep(type_speed)
 
     for char in dob:
         keyboard.press(char)
         keyboard.release(char)
-        time.sleep(0.05)
+        time.sleep(type_speed)
 
+    keyboard.press(t)
+    keyboard.release(t)
+    time.sleep(type_speed)
     keyboard.press(e)
     keyboard.release(e)
-    # # Move pointer relative to current position
-    # mouse.move(0, 20)
-    #
-    # # Press and release
-    # mouse.press(Button.left)
-    # mouse.release(Button.left)
+    time.sleep(type_speed)
 
+    # ************************second window input*******************
+    # Set pointer position
+    mouse.position = (180, 330)
+    time.sleep(type_speed)
 
-# Set pointer position
-mouse.position = (220, 330)
-time.sleep(0.05)
+    # Press and release
+    mouse.press(Button.left)
+    mouse.release(Button.left)
+    time.sleep(type_speed)
 
-# Press and release
-mouse.press(Button.left)
-mouse.release(Button.left)
-time.sleep(0.5)
+    for repeat2 in range(4):
+        keyboard.press(t)
+        keyboard.release(t)
+        time.sleep(type_speed)
+
+    for char in first_name:
+        keyboard.press(char)
+        keyboard.release(char)
+        time.sleep(type_speed)
+
+    keyboard.press(t)
+    keyboard.release(t)
+    time.sleep(type_speed)
+
+    for char in last_name:
+        keyboard.press(char)
+        keyboard.release(char)
+        time.sleep(type_speed)
+
+    keyboard.press(t)
+    keyboard.release(t)
+    time.sleep(type_speed)
+
+    for char in age:
+        keyboard.press(char)
+        keyboard.release(char)
+        time.sleep(type_speed)
+
+    keyboard.press(t)
+    keyboard.release(t)
+    time.sleep(type_speed)
+    keyboard.press(t)
+    keyboard.release(t)
+    time.sleep(type_speed)
+    keyboard.press(e)
+    keyboard.release(e)
+    time.sleep(type_speed)
+
+    # ************** third window ***************************
+    # Set pointer position
+    mouse.position = (180, 330)
+    time.sleep(type_speed)
+
+    # Press and release
+    mouse.press(Button.left)
+    mouse.release(Button.left)
+    time.sleep(type_speed)
+
+    keyboard.press(t)
+    keyboard.release(t)
+    time.sleep(type_speed)
+    keyboard.press(e)
+    keyboard.release(e)
+    time.sleep(type_speed)
+
 
 # Start going through patient data
 for index, tuples in enumerate(lst_tuple):
