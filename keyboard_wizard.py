@@ -1,12 +1,15 @@
 # Automated Keyboard and Mouse Demo
 # Rigel Keller
-# Best example inside either a google sheets or excel spreadsheet
+# Excel file required. Name:random_data.xlsx
+# Use while google form is open to see full demo otherwise open google sheets or an empty excel file
+# and watch the keyboard strokes at work.
 
 from pynput.keyboard import Key, Controller as KeyboardController
 from pynput.mouse import Button, Controller as MouseController
 import time
 import openpyxl
 
+# Excel Document containing patient demographics
 path = "random_data.xlsx"
 time.sleep(1)
 
@@ -15,12 +18,14 @@ wb_obj = openpyxl.load_workbook(path)
 
 sheet_obj = wb_obj.active
 max_col = sheet_obj.max_column
+
+# Number of patients to input from Excel document
 # max_row = sheet_obj.max_row
-max_row = 10
+max_row = 5
 big_lst = []
 
 
-# Loop will print all columns name
+# Converting excel data into one big list
 for x in range(1, max_row + 1):
     for i in range(1, max_col + 1):
         cell_obj = sheet_obj.cell(row=x, column=i)
@@ -30,7 +35,7 @@ for x in range(1, max_row + 1):
         big_lst.append(box)
         time.sleep(0.1)
 
-# Converting list into list of Tuples
+# Converting list into list of Tuples. Each tuple is a patient
 lst_tuple = [x for x in zip(*[iter(big_lst)]*5)]
 
 # Keyboard and mouse setup
@@ -39,10 +44,14 @@ mouse = MouseController()
 t = Key.tab
 e = Key.enter
 
+# Time inbetween each keyboard press
 type_speed = 0.2
+
+# Pause in code for loading
 time.sleep(3)
 
 
+# The bread and butter
 def myfunction(first_name, last_name, age, ssn, dob):
     # Set pointer position
     mouse.position = (180, 330)
@@ -171,6 +180,6 @@ def myfunction(first_name, last_name, age, ssn, dob):
     time.sleep(type_speed)
 
 
-# Start going through patient data
+# Calling function: Generating Keyboard strokes referring to patient demographics
 for index, tuples in enumerate(lst_tuple):
     myfunction(tuples[0], tuples[1], tuples[2], tuples[3], tuples[4])
