@@ -2,15 +2,13 @@
  
 Pip install pynput and openpyxl
 
+Excel file random_data.xlsx is required
 
-should be two parts
+Best option is to have the google form open while code is running. Otherwise, a full screen google sheets will work too.
 
-function1()
-    input is the excel document
-    one where it reads all of the excel cells and puts them in a list and then a list of tuples.
-    output: a list of tuples
+This code is a demo for uploading patient demographics into a database. Data such as first, middle, and last name, as 
+well as date of birth, Social Security Number and Phone number are all required to be hand typed to create a profile 
+inside a Radiation Health database. This code serves as a proof of concept that this task can be automated which will 
+reduce the man-hours from 20 plus hours to minutes if implemented. 
 
-function2()
-    input: list of tuples
-    Second where the script runs through the keyboard strokes and characters in each
-    output: The keystrokes into the application. 
+-Rigel Keller
